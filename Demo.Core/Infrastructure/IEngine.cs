@@ -21,7 +21,7 @@ namespace Demo.Core.Infrastructure
         /// Initialize components and plugins in the nop environment.
         /// </summary>
         /// <param name="config">Config</param>
-        void Initialize(TBSConfig config);
+        void Initialize(SysConfig config);
 
         /// <summary>
         /// Resolve dependency

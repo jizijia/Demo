@@ -10,13 +10,13 @@ namespace Demo.Core.Caching
     /// </summary>
     public class RedisConnectionWrapper : IRedisConnectionWrapper
     {
-        private readonly TBSConfig _config;
+        private readonly SysConfig _config;
         private readonly Lazy<string> _connectionString;
 
         private volatile ConnectionMultiplexer _connection;
         private readonly object _lock = new object();
 
-        public RedisConnectionWrapper(TBSConfig config)
+        public RedisConnectionWrapper(SysConfig config)
         {
             this._config = config;
             this._connectionString = new Lazy<string>(GetConnectionString);

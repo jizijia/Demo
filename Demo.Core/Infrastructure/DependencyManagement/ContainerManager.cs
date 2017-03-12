@@ -126,17 +126,17 @@ namespace Demo.Core.Infrastructure.DependencyManagement
                     foreach (var parameter in parameters)
                     {
                         var service = Resolve(parameter.ParameterType, scope);
-                        if (service == null) throw new TBSException("Unknown dependency");
+                        if (service == null) throw new MyException("Unknown dependency");
                         parameterInstances.Add(service);
                     }
                     return Activator.CreateInstance(type, parameterInstances.ToArray());
                 }
-                catch (TBSException)
+                catch (MyException)
                 {
 
                 }
             }
-            throw new TBSException("No constructor  was found that had all the dependencies satisfied.");
+            throw new MyException("No constructor  was found that had all the dependencies satisfied.");
         }
         
         /// <summary>

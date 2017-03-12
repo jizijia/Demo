@@ -14,7 +14,7 @@ namespace Demo.Core.Infrastructure.DependencyManagement
         /// <param name="builder">Container builder</param>
         /// <param name="typeFinder">Type finder</param>
         /// <param name="config">Config</param>
-        void Register(ContainerBuilder builder, ITypeFinder typeFinder, TBSConfig config);
+        void Register(ContainerBuilder builder, ITypeFinder typeFinder, SysConfig config);
 
         /// <summary>
         /// Order of this dependency registrar implementation

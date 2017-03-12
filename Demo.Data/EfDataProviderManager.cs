@@ -15,7 +15,7 @@ namespace Demo.Data
 
             var providerName = Settings.DataProvider;
             if (String.IsNullOrWhiteSpace(providerName))
-                throw new TBSException("Data Settings doesn't contain a providerName");
+                throw new MyException("Data Settings doesn't contain a providerName");
 
             switch (providerName.ToLowerInvariant())
             {
@@ -24,7 +24,7 @@ namespace Demo.Data
                 //case "sqlce":
                 //    return new SqlCeDataProvider();
                 default:
-                    throw new TBSException(string.Format("Not supported dataprovider name: {0}", providerName));
+                    throw new MyException(string.Format("Not supported dataprovider name: {0}", providerName));
             }
         }
 

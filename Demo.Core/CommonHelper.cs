@@ -33,7 +33,7 @@ namespace Demo.Core
 
             if (!IsValidEmail(output))
             {
-                throw new TBSException("Email is not valid.");
+                throw new MyException("Email is not valid.");
             }
 
             return output;

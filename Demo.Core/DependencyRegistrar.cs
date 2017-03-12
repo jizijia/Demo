@@ -15,7 +15,7 @@ namespace Demo.Core
     {
 
         //public virtual void Register(Autofac.ContainerBuilder builder, ITypeFinder typeFinder)
-        public void Register(Autofac.ContainerBuilder builder, ITypeFinder typeFinder, TBSConfig config)
+        public void Register(Autofac.ContainerBuilder builder, ITypeFinder typeFinder, SysConfig config)
         {
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().Named<ICacheManager>(ContractConst.CACHE_STATIC).SingleInstance();
             builder.RegisterType<PerRequestCacheManager>().As<ICacheManager>().Named<ICacheManager>(ContractConst.CACHE_PER_REQUEST);
