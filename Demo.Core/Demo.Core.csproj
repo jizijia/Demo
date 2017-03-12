@@ -113,8 +113,7 @@
     <Compile Include="Configuration\ConfigFileAttribute.cs" />
     <Compile Include="Configuration\ConfigManager.cs" />
     <Compile Include="Configuration\ISettings.cs" />
-    <Compile Include="Configuration\NopConfig.cs" />
-    <Compile Include="Configuration\TBSConfig.cs" />
+    <Compile Include="Configuration\SysConfig.cs" />
     <Compile Include="ContractConst.cs" />
     <Compile Include="Data\BaseDataProviderManager.cs" />
     <Compile Include="Data\CustomValidation.cs" />
@@ -146,9 +145,9 @@
     <Compile Include="Infrastructure\TBSEngine.cs" />
     <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
     <Compile Include="IPagedList.cs" />
+    <Compile Include="MyException.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TBSException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
