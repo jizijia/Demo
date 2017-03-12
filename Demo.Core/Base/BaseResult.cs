@@ -15,12 +15,7 @@ namespace Demo.Core.Base
         /// <summary>
         /// 验证结果
         /// </summary>
-        public bool IsSuccess { get; set; }
-
-        /// <summary>
-        /// 验证代码
-        /// </summary>
-        public string Code { get; set; }
+        public bool IsSucceed { get; set; }
 
         /// <summary>
         /// 数据
@@ -34,35 +29,23 @@ namespace Demo.Core.Base
 
         public BaseResult()
         {
-            IsSuccess = true;
+            IsSucceed = true;
         }
         public BaseResult(object data)
         {
             Data = data;
-            IsSuccess = true;
+            IsSucceed = true;
         }
     }
     /// <summary>
     /// 基础返回数据
     /// </summary>
-    public class BaseResult<T>
+    public class BaseResult<T> : BaseResult
     {
-        /// <summary>
-        /// 验证结果
-        /// </summary>
-        public bool IsSucceed { get; set; }
-        /// <summary>
-        /// 验证代码
-        /// </summary>
-        public int Code { get; set; }
         /// <summary>
         /// 数据
         /// </summary>
-        public T Data { get; set; }
-        /// <summary>
-        /// 验证信息
-        /// </summary>
-        public string Message { get; set; }
+        public new T Data { get; set; }
 
         public BaseResult()
         {
@@ -78,13 +61,15 @@ namespace Demo.Core.Base
     public class BaseResultException : Exception
     {
         /// <summary>
-        /// 验证代码
+        /// 验证结果
         /// </summary>
-        public BaseCode Code { get; set; }
+        public bool IsSucceed { get; set; } = true;
+
         /// <summary>
         /// 数据
         /// </summary>
         public object Result { get; set; }
+
         /// <summary>
         /// 验证信息
         /// </summary>
@@ -94,9 +79,9 @@ namespace Demo.Core.Base
         {
             return new BaseResult
             {
-                IsSuccess = false,
+                IsSucceed = false,
                 Data = Result,
-                Message = ResultMessage.IsNone() ? Code.ToString() : ResultMessage
+                Message = ""
             };
         }
     }
