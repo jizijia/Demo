@@ -40,7 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\IPermissionService.cs" />
+    <Compile Include="Account\IRoleService.cs" />
+    <Compile Include="Account\IUserActivityLogService.cs" />
+    <Compile Include="Account\IUserService.cs" />
+    <Compile Include="Account\PermissionService.cs" />
+    <Compile Include="Account\RoleService.cs" />
+    <Compile Include="Account\UserActivityLogService.cs" />
+    <Compile Include="Account\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Core\Demo.Core.csproj">
+      <Project>{2a912fb2-991a-4e85-8cf6-e0bca12f5e8f}</Project>
+      <Name>Demo.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
