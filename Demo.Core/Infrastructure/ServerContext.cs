@@ -8,7 +8,7 @@ namespace Demo.Core.Infrastructure
     /// <summary>
     /// Provides access to the singleton instance of the  engine.
     /// </summary>
-    public class AppContext
+    public class ServerContext
     {
         #region Methods
 

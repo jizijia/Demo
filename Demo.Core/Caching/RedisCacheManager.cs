@@ -34,7 +34,7 @@ namespace Demo.Core.Caching
             this._muxer = ConnectionMultiplexer.Connect(config.RedisCachingConnectionString);
 
             this._db = _muxer.GetDatabase();
-            this._perRequestCacheManager = AppContext.Current.Resolve<ICacheManager>();
+            this._perRequestCacheManager = ServerContext.Current.Resolve<ICacheManager>();
         }
 
         #endregion

@@ -1,0 +1,195 @@
+﻿<Controls:MetroWindow x:Class="Tools.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:System="clr-namespace:System;assembly=mscorlib"
+                      Title="Toolbox for TBS"
+                      Width="1000"
+                      Height="800"
+                      Style="{DynamicResource VSWindowStyleKey}"
+                      WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu Margin="2,0,0,0"
+              DockPanel.Dock="Top" 
+              SnapsToDevicePixels="True">
+            <MenuItem Header="ROCKETS">
+                <MenuItem Header="Rocket slot 1">
+                    <MenuItem Header="Fire slot" />
+                    <Separator />
+                    <MenuItem Header="Relaod slot" />
+                    <MenuItem Header="Report damage to control room" />
+                </MenuItem>
+                <MenuItem Header="Rocket slot 2">
+                    <MenuItem Header="damaged .. being repaired" IsEnabled="False" />
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="NAVIGATION">
+                <MenuItem Header="Left engine">
+                    <MenuItem Header="Full speed ahead" />
+                    <MenuItem Header="2/3 speed" />
+                    <MenuItem Header="1/3 speed" />
+                    <MenuItem Header="Stop engine" />
+                </MenuItem>
+                <MenuItem Header="Right engine">
+                    <MenuItem Header="Full speed ahead" />
+                    <MenuItem Header="2/3 speed" />
+                    <MenuItem Header="1/3 speed" />
+                    <MenuItem Header="Stop engine" />
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBlock Margin="5"
+                   VerticalAlignment="Center"
+                   DockPanel.Dock="Left"
+                   Foreground="{StaticResource Foreground}">
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </TextBlock.LayoutTransform>
+            Starship ENTERPRISE
+        </TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+            <TabControl Margin="0,10,0,0">
+                <TabItem Header="Rest Tester" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid Margin="50,50,25,50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" FontSize="32"  Margin="5,0,0,0">Reqest</TextBlock>
+                                <TextBox  x:Name="txtRestUrl" Grid.Row="1"
+                                  Grid.Column="0"
+                                  FontSize="16"  
+                                  Margin="5"
+                                          Text="http://localhost:10001/tbs/"
+                                  Style="{DynamicResource MetroButtonTextBox}"
+                                  Controls:TextBoxHelper.ClearTextButton="True"
+                                  Controls:TextBoxHelper.Watermark="Request Url"
+                                  ToolTip="Request Url" />
+                                <RichTextBox x:Name="txtRestData" Grid.Row="2"
+                                 Grid.Column="0" 
+                                 Margin="5"
+                                 AcceptsReturn="True"
+                                 FontSize="16"   
+                                 Controls:TextBoxHelper.Watermark="Post Data"
+                                 Controls:TextBoxHelper.ClearTextButton="False"
+                                 VerticalScrollBarVisibility="Auto" />
+                                <Button x:Name="btnRestTester_Reqest" Grid.Row="3"
+                                Grid.Column="0"
+                                        Click="btnRestTester_Reqest_Click"
+                                Height="30"
+                                Margin="5">
+                                    Send
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid Margin="25,50,50,50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock  Grid.Row="0" Grid.Column="1" FontSize="32" Margin="5,0,0,0">Response</TextBlock>
+                                <RichTextBox x:Name="txtRestResponseContent"  Grid.Row="1"
+                                  Grid.Column="1"
+                                  Grid.RowSpan="2"
+                                  FontSize="16"  
+                                  Margin="5" 
+                                  Controls:TextBoxHelper.ClearTextButton="False"
+                                  Controls:TextBoxHelper.Watermark="Responpse Content"
+                                  ToolTip="Responpse Content" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Rest Tester" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19*"/>
+                            <RowDefinition Height="17*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="默认凭证" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="58"/>
+                        <TextBox x:Name="txtDefaultUser" HorizontalAlignment="Left" Height="23" Margin="72,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368"/>
+                        <Label Content="默认KEY" HorizontalAlignment="Left" Margin="455,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="55"/>
+                        <TextBox x:Name="txtDefaultKey" HorizontalAlignment="Left" Height="23" Margin="515,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440"/>
+                        <Label Content="接口地址" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="58"/>
+                        <TextBox x:Name="txtApiHost" HorizontalAlignment="Left" Height="23" Margin="73,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="315"/>
+                        <CheckBox x:Name="chkUseSign" Content="签名?" HorizontalAlignment="Left" Margin="393,48,0,0" VerticalAlignment="Top" Height="16" Width="47"/>
+                        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="272" Margin="455,43,0,0" VerticalAlignment="Top" Width="500" MouseDoubleClick="listView1_MouseDoubleClick" SelectionChanged="listView1_SelectionChanged">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="时间" Width="125" DisplayMemberBinding="{Binding Time}"/>
+                                    <GridViewColumn Header="Host" Width="140" DisplayMemberBinding="{Binding Host}"/>
+                                    <GridViewColumn Header="接口" Width="170" DisplayMemberBinding="{Binding Interface}"/>
+                                    <GridViewColumn Header="Method" Width="50" DisplayMemberBinding="{Binding Method}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Label Content="接口方法" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="58"/>
+                        <TextBox x:Name="txtInterface" HorizontalAlignment="Left" Height="23" Margin="73,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="367"/>
+                        <Label Content="参数" HorizontalAlignment="Left" Margin="34,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="34"/>
+                        <TextBox x:Name="txtData" HorizontalAlignment="Left" Height="80" Margin="73,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="367">
+                        </TextBox>
+                        <TextBox x:Name="txtData2" HorizontalAlignment="Left" Height="80" Margin="72,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368"/>
+                        <Label Content="签名明文" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Grid.Row="1" Height="26" Width="58"/>
+                        <Label Content="Cookie" HorizontalAlignment="Left" Margin="18,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Grid.Row="1" Height="26" Width="50"/>
+                        <TextBox x:Name="txtToken" HorizontalAlignment="Left" Height="23" Margin="73,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="882" Grid.Row="1"/>
+                        <TextBox x:Name="txtCookie" HorizontalAlignment="Left" Height="23" Margin="73,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="882" Grid.Row="1"/>
+                        <Label Content="结果" HorizontalAlignment="Left" Margin="34,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Grid.Row="1" Height="26" Width="34"/>
+                        <TextBox x:Name="txtResult" HorizontalAlignment="Left" Height="206" Margin="73,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="882" Grid.Row="1"/>
+                        <Label Content="提交方式" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.375,0.308" Height="26" Width="58"/>
+                        <ComboBox x:Name="comMethod" HorizontalAlignment="Left" Margin="73,110,0,0" VerticalAlignment="Top" Width="120">
+                            <ComboBoxItem Content="GET"/>
+                            <ComboBoxItem Content="POST"/>
+                        </ComboBox>
+                        <Button x:Name="btnSubmit" Content="提交" HorizontalAlignment="Left" Margin="365,110,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.053,0.818" Click="btnSubmit_Click"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <StackPanel Grid.Column="1" Margin="50,25,25,0">
+                <TextBlock Margin="0,10,0,10"
+                           FontSize="18"
+                           Foreground="{StaticResource Foreground}"
+                           Text="Related url" />
+                <Separator Background="#11FFFFFF" />
+                <Button x:Name="btnJsonEditor" Margin="0,10,0,3" 
+                        Content="JSON在线编辑器"
+                        Tag="http://www.bejson.com/jsoneditoronline"
+                        FontSize="14"
+                        Click="OpenHyperlink"
+                        Style="{StaticResource LinkButton}" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+
+</Controls:MetroWindow>
