@@ -53,7 +53,6 @@
     <Compile Include="DbContextExtensions.cs" />
     <Compile Include="EfDataProviderManager.cs" />
     <Compile Include="EfRepository.cs" />
-    <Compile Include="EfStartUpTask.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\Account\PermissionMap.cs" />
@@ -70,7 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Db.Config" />
+    <None Include="Db.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
