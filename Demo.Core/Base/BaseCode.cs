@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.Core.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,29 @@ using System.Threading.Tasks;
 
 namespace Demo.Core.Base
 {
-    public enum BaseCode
+    public class MessageCode
     {
-        //代码错误
-        服务器错误 = 500,
+        // 服务器错误
+        [Description("服务器错误")]
+        public const string SERVER_ERROR = "500";
 
-        //用户登录
-        登录异常重新登录 = 10001,
-        权限不足 = 10002,
+
+        // 用户登录
+        [Description("登录异常重新登录")]
+        public const string ACCOUNT_UNAUTHORIZED = "10001";
+
+        [Description("权限不足")]
+        public const string ACCOUNT_PERMISSION_DENIED = "10002";
 
         //数据验证
-        数据验证失败 = 10101,
-        数据异常 = 10102,
-        查无数据 = 10103
+
+        [Description("数据验证失败")]
+        public const string DATA_VALIDATION_FAILED = "10101";
+
+        [Description("数据异常")]
+        public const string DATA_EXCEPTION = "10102";
+
+        [Description("查无数据")]
+        public const string DATA_NOT_FOUND= "10103";
     }
 }

@@ -35,10 +35,10 @@ namespace Demo.Service
         public User Insert(User user)
         {
             if (user == null)
-                throw new BaseResultException { Code=BaseCode.数据验证失败,ResultMessage="数据异常"};
+                throw new BaseResultException { Code=MessageCode.DATA_VALIDATION_FAILED,ResultMessage="数据异常"};
 
             if (IsExisting(user.UserName))
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "该用户已存在" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "该用户已存在" };
 
             return _userRepository.Insert(user);
         }
@@ -119,7 +119,7 @@ namespace Demo.Service
         public void DeleteUser(User user)
         {
             if (user == null)
-                throw new BaseResultException { Code=BaseCode.数据验证失败,ResultMessage="数据异常"};
+                throw new BaseResultException { Code=MessageCode.DATA_VALIDATION_FAILED, ResultMessage="数据异常"};
 
             _userRepository.Delete(user);
         }
@@ -131,7 +131,7 @@ namespace Demo.Service
         public BaseResult UpdateUser(User user)
         {
             if (user == null)
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "数据异常" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "数据异常" };
 
             return new BaseResult {
                 Data = _userRepository.Update(user)
@@ -160,16 +160,16 @@ namespace Demo.Service
         public BaseResult ChangePassword(User user, string oldPassword, string newPassword)
         {
             if (user == null)
-                throw new BaseResultException { Code=BaseCode.数据验证失败,ResultMessage="数据异常"};
+                throw new BaseResultException { Code=MessageCode.DATA_VALIDATION_FAILED, ResultMessage="数据异常"};
 
             if (oldPassword.IsNone())
-                throw new BaseResultException { Code=BaseCode.数据验证失败,ResultMessage="旧密码不能为空"};
+                throw new BaseResultException { Code=MessageCode.DATA_VALIDATION_FAILED, ResultMessage="旧密码不能为空"};
 
             if (newPassword.IsNone())
-                throw new BaseResultException { Code=BaseCode.数据验证失败,ResultMessage="新密码不能为空"};
+                throw new BaseResultException { Code=MessageCode.DATA_VALIDATION_FAILED, ResultMessage="新密码不能为空"};
 
             if (user.Password != GeneratePassword(oldPassword))
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "旧密码错误" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "旧密码错误" };
 
             user.Password = GeneratePassword(newPassword);
             return new BaseResult {
@@ -187,24 +187,24 @@ namespace Demo.Service
             try
             {
                 if (userName.IsNone())
-                    throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "用户名不能为空" };
+                    throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "用户名不能为空" };
 
                 if (password.IsNone())
-                    throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "密码不能为空" };
+                    throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "密码不能为空" };
 
                 var user = _userRepository.GetByCondition(x => x.UserName == userName);
                 if (user == null)
-                    throw new BaseResultException { Code = BaseCode.查无数据, ResultMessage = "用户不存在" };
+                    throw new BaseResultException { Code = MessageCode.DATA_NOT_FOUND, ResultMessage = "用户不存在" };
 
                 if (user.Status == "DISABLE")
-                    throw new BaseResultException { Code = BaseCode.查无数据, ResultMessage = "该账户已停用，请联系管理员进行解锁" };
+                    throw new BaseResultException { Code = MessageCode.DATA_NOT_FOUND, ResultMessage = "该账户已停用，请联系管理员进行解锁" };
 
                 var loginFailedCount =_userlogRepository.GetLoginFailedTimes(userName,DateTime.Now);
                 if (loginFailedCount >= 5)
-                    throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "今日密码连续错误5次，已限制登录" };
+                    throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "今日密码连续错误5次，已限制登录" };
 
                 if (user.Password != GeneratePassword(password))
-                    throw new BaseResultException { Code = BaseCode.查无数据, ResultMessage = "用户密码错误，当天还剩 "+loginFailedCount+ "次" };
+                    throw new BaseResultException { Code = MessageCode.DATA_NOT_FOUND, ResultMessage = "用户密码错误，当天还剩 "+loginFailedCount+ "次" };
 
                 // 记录成功日志
                 var userLoginLog = new UserActivityLog

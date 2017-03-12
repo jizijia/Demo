@@ -43,13 +43,13 @@ namespace Demo.Services.Account
         public void Insert(UserActivityLog userActivityLog)
         {
             if (userActivityLog == null)
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "数据不能为空" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "数据不能为空" };
 
             if (userActivityLog.UserID<1)
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "用户ID为空" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "用户ID为空" };
 
             if (userActivityLog.ActivityType.IsNone())
-                throw new BaseResultException { Code = BaseCode.数据验证失败, ResultMessage = "类型为空" };
+                throw new BaseResultException { Code = MessageCode.DATA_VALIDATION_FAILED, ResultMessage = "类型为空" };
 
             userActivityLog.IpAddress = NetworkHelper.GetClientIP();
             userActivityLog.ReferrerUrl = NetworkHelper.ReferrerUrl();

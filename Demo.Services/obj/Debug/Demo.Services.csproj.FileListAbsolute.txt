@@ -1,4 +1,3 @@
-D:\GitHub\Demo\Demo.Services\obj\Debug\Demo.Services.csprojResolveAssemblyReference.cache
 D:\GitHub\Demo\Demo.Services\bin\Debug\Demo.Services.dll
 D:\GitHub\Demo\Demo.Services\bin\Debug\Demo.Services.pdb
 D:\GitHub\Demo\Demo.Services\bin\Debug\Demo.Core.dll
@@ -9,5 +8,6 @@ D:\GitHub\Demo\Demo.Services\bin\Debug\Demo.Core.pdb
 D:\GitHub\Demo\Demo.Services\bin\Debug\Autofac.xml
 D:\GitHub\Demo\Demo.Services\bin\Debug\Newtonsoft.Json.xml
 D:\GitHub\Demo\Demo.Services\bin\Debug\StackExchange.Redis.StrongName.xml
+D:\GitHub\Demo\Demo.Services\obj\Debug\Demo.Services.csprojResolveAssemblyReference.cache
 D:\GitHub\Demo\Demo.Services\obj\Debug\Demo.Services.dll
 D:\GitHub\Demo\Demo.Services\obj\Debug\Demo.Services.pdb

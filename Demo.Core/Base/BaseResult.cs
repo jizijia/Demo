@@ -13,6 +13,11 @@ namespace Demo.Core.Base
     public class BaseResult
     {
         /// <summary>
+        /// 编码
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
         /// 验证结果
         /// </summary>
         public bool IsSucceed { get; set; }
@@ -60,6 +65,11 @@ namespace Demo.Core.Base
 
     public class BaseResultException : Exception
     {
+        /// <summary>
+        /// 编码
+        /// </summary>
+        public string Code { get; set; }
+
         /// <summary>
         /// 验证结果
         /// </summary>
