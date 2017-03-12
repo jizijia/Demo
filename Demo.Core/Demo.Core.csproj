@@ -79,7 +79,7 @@
     <Compile Include="AOP\Metadata\ParameterMetadata.cs" />
     <Compile Include="AOP\Metadata\ResultMetadata.cs" />
     <Compile Include="AOP\ProxyFactory.cs" />
-    <Compile Include="Base\BaseCode.cs" />
+    <Compile Include="Base\MessageCode.cs" />
     <Compile Include="Base\BaseEntity.cs" />
     <Compile Include="Base\BaseResult.cs" />
     <Compile Include="Base\UserTicket.cs" />

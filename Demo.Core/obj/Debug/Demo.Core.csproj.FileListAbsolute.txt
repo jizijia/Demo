@@ -15,3 +15,4 @@ D:\GitHub\Demo\Demo.Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\GitHub\Demo\Demo.Core\bin\Debug\System.Web.Http.xml
 D:\GitHub\Demo\Demo.Core\obj\Debug\Demo.Core.dll
 D:\GitHub\Demo\Demo.Core\obj\Debug\Demo.Core.pdb
+D:\GitHub\Demo\Demo.Core\obj\Debug\Demo.Core.csprojResolveAssemblyReference.cache

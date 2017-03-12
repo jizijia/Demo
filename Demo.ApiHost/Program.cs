@@ -29,7 +29,6 @@ namespace Demo.ApiHost
                 config.EnableCors();//启动跨域
                 var server = new HttpSelfHostServer(config);
                 Console.WriteLine("WebApi Host is starting.");
-
                 server.OpenAsync().Wait(); //开启监听
                 Console.ReadLine();
                 #endregion

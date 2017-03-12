@@ -68,6 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResults\NotFoundActionResult.cs" />
+    <Compile Include="BaseApiController.cs" />
+    <Compile Include="Filters\ExceptionAttribute.cs" />
+    <Compile Include="Filters\SignCheckAttribute.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValuesController.cs" />
@@ -75,6 +79,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Core\Demo.Core.csproj">
+      <Project>{2a912fb2-991a-4e85-8cf6-e0bca12f5e8f}</Project>
+      <Name>Demo.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

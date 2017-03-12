@@ -11,7 +11,7 @@ namespace Demo.Core.Base
     {
         // 服务器错误
         [Description("服务器错误")]
-        public const string SERVER_ERROR = "500";
+        public const string SERVER_ERROR_500 = "500";
 
 
         // 用户登录

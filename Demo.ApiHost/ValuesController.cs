@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 using System.IO;
 using System.Xml.Linq;
 
-namespace Interface
+namespace Demo.ApiHost
 {
 
     /******
